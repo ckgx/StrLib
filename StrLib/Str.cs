@@ -537,70 +537,6 @@ namespace StrLib
             return stringBuilder.ToString();
         }
 
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾不添加换行
-        /// </summary>
-        /// <param name="isNoContentToNoAdd">遇到没有内容的情况不添加换行。true：不添加换行</param>
-        /// <param name="extraNewlineToNum">每几个内容额外添加个换行</param>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewline(bool isNoContentToNoAdd = true, int extraNewlineToNum = 0, params object[] contents)
-        {
-            return AddNewline(isNoContentToNoAdd, true, false, extraNewlineToNum, contents);
-        }
-
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾不添加换行，空内容不处理
-        /// </summary>
-        /// <param name="extraNewlineToNum">每几个内容额外添加个换行</param>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewline(int extraNewlineToNum = 0, params object[] contents)
-        {
-            return AddNewline(true, true, false, extraNewlineToNum, contents);
-        }
-
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾不添加换行，空内容不处理
-        /// </summary>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewline(params object[] contents)
-        {
-            return AddNewline(true, true, false, 0, contents);
-        }
-
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾不添加换行，空内容不处理
-        /// </summary>
-        /// <param name="content"></param>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewline(this string content, params object[] contents)
-        {
-            return AddNewline(true, true, false, 0, content, contents);
-        }
-
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾添加换行，空内容不处理
-        /// </summary>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewlines(params object[] contents)
-        {
-            return AddNewline(true, true, true, 0, contents);
-        }
-
-        /// <summary>
-        /// 用此函数添加换行，能保证每个内容有一个换行。末尾添加换行，空内容不处理
-        /// </summary>
-        /// <param name="content"></param>
-        /// <param name="contents">内容</param>
-        /// <returns>新的内容</returns>
-        public static string AddNewlines(this string content, params object[] contents)
-        {
-            return AddNewline(true, true, true, 0, content, contents);
-        }
 
         /// <summary>
         /// 比较中文字符是否相等
@@ -724,17 +660,7 @@ namespace StrLib
             return Environment.NewLine;
         }
 
-        /// <summary>
-        /// 将对象转换为 String 然后不足位数填充指定内容
-        /// </summary>
-        /// <param name="obj">将要转换为字符串的对象</param>
-        /// <param name="totalWidth">不达到什么长度会被填充</param>
-        /// <param name="paddingChar">填充的字符</param>
-        /// <returns></returns>
-        public static string PadLeft(this object obj, int totalWidth, char paddingChar)
-        {
-            return obj.ToString().PadLeft(totalWidth, paddingChar);
-        }
+
 
         /// <summary>
         /// 字符串转byte数组
