@@ -484,28 +484,6 @@ namespace StrLib
             return returnStr;
         }
 
-        /// <summary>
-        /// 如果字符串最后的内容是指定的内容，则移除字符串最后的指定内容（多项内容只匹配第一个找到的）
-        /// </summary>
-        /// <param name="content">内容</param>
-        /// <param name="findStrs">指定内容</param>
-        /// <returns>移除后的内容</returns>
-        public static string? RemoveStartStr(this string? content, params string[] findStrs)
-        {
-            string? returnStr = content;
-            if (IsValid(content))
-            {
-                foreach (var findStr in findStrs)
-                {
-                    if (IsFindStartStr(content, findStr))
-                    {
-                        returnStr = content.Substring(findStr.Length);
-                        break;
-                    }
-                }
-            }
-            return returnStr;
-        }
 
         /// <summary>
         /// 通过String.Replace方式替换指定内容。注意"\r"、"\n"之类的不用加@
