@@ -79,15 +79,6 @@ namespace StrLib
             }
         }
 
-        /// <summary>
-        /// 判断对象ToString()后是否是有效内容，有效：true
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns>有效：true</returns>
-        public static bool ExistForToStr(this object? obj)
-        {
-            return obj != null && obj.ToString().IsValid();
-        }
 
         /// <summary>
         /// 从找到的内容截取字符串到结束
@@ -688,6 +679,37 @@ namespace StrLib
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(chars).ToString();
             return stringBuilder.ToString();
+        }
+
+        /// <summary>
+        /// 生成自定义异常消息
+        /// </summary>
+        /// <param name="ex">异常对象</param>
+        /// <param name="backStr">备用异常消息：当ex为null时有效</param>
+        /// <returns>异常字符串文本</returns>
+        public static string GetExceptionMsg(Exception ex, string backStr = "")
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("****************************异常文本****************************");
+            sb.AppendLine("【出现时间】：" + DateTime.Now);
+            if (ex != null)
+            {
+                sb.AppendLine("【异常类型】：");
+                sb.AppendLine(ex.GetType().Name);
+                sb.AppendLine("【异常信息】：");
+                sb.AppendLine(ex.Message);
+                sb.AppendLine("【堆栈调用】：");
+                sb.AppendLine(ex.StackTrace);
+                sb.AppendLine("【获取导致错误的应用程序或对象的名称】：");
+                sb.AppendLine(ex.Source);
+                sb.AppendLine("【获取引发当前异常的方法】：");
+                sb.AppendLine(ex.TargetSite.Name);
+            }
+            else
+            {
+                sb.AppendLine("【未处理异常】：" + backStr);
+            }
+            return sb.ToString();
         }
     }
 }
