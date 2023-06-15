@@ -79,15 +79,6 @@ namespace StrLib
             }
         }
 
-        /// <summary>
-        /// 判断对象ToString()后是否是有效内容，有效：true
-        /// </summary>
-        /// <param name="obj"></param>
-        /// <returns>有效：true</returns>
-        public static bool ExistForToStr(this object? obj)
-        {
-            return obj != null && obj.ToString().IsValid();
-        }
 
         /// <summary>
         /// 从找到的内容截取字符串到结束
