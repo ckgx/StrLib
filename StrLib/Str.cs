@@ -687,7 +687,7 @@ namespace StrLib
         /// <param name="ex">异常对象</param>
         /// <param name="backStr">备用异常消息：当ex为null时有效</param>
         /// <returns>异常字符串文本</returns>
-        public static string GetExceptionMsg(Exception ex, string backStr = "")
+        public static string GetExceptionMsg(this Exception ex, string backStr = "")
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("****************************异常文本****************************");
